@@ -24,10 +24,24 @@ body,
   animation: fadeInLeft;
   animation-duration: 2s;
 }
+
 .container-fluid {
   display: inline-block;
   text-align: center;
 }
+
+/*RESPONSIVE HEADER*/
+@media (max-width: 991.98px) {
+  .navbar-expand-lg>.container,
+  .navbar-expand-lg>.container-fluid {
+    padding-left: inherit !important;
+  }
+
+  .navbar-nav.flex-row.flex-wrap.ms-md-auto {
+    flex: 1 !important;
+  }
+}
+
 /*NAV TEXT*/
 .navbar-brand {
   font-weight: bold;
