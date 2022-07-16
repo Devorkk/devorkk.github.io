@@ -91,6 +91,7 @@ body,
   animation: slideInUp;
   animation-duration: 1.5s;
   transition: 1s;
+  bottom: 40px;
 }
 
 .card {
