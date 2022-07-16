@@ -1,0 +1,112 @@
+:root {
+  --bkg: #121212;
+  --bkg-light: #181818;
+  --light-green: #1ed760;
+  --dark-green: #169c46;
+  --border: 1px ridge #74747724;
+}
+
+/*BODY CONF*/
+body,
+.col {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background: var(--bkg) !important;
+}
+
+/*HEADER*/
+.navbar-expand-lg.bg-light {
+  background: var(--bkg-light) !important;
+  border: var(--border);
+  z-index: 9999999;
+  animation: fadeInLeft;
+  animation-duration: 2s;
+}
+
+/*NAV TEXT*/
+.navbar-brand {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--light-green);
+  letter-spacing: 0.5mm;
+  transition: 1s;
+}
+
+.navbar-brand:hover {
+  color: var(--dark-green);
+  animation: pulse 500ms infinite;
+  transition: 1s;
+}
+
+/*ICONS*/
+.svg-inline--fa.fa-github.fa-w-16.fa-fw,
+.svg-inline--fa.fa-youtube.fa-w-18.fa-fw {
+  color: var(--light-green) !important;
+  transition: 1s;
+}
+
+.svg-inline--fa.fa-github.fa-w-16.fa-fw:hover,
+.svg-inline--fa.fa-youtube.fa-w-18.fa-fw:hover {
+  color: var(--dark-green) !important;
+  animation: pulse 500ms infinite;
+  transition: 1s;
+}
+
+/*MAIN TEXT*/
+.jumbotron {
+  background-color: var(--bkg) !important;
+  color: var(--light-green);
+  padding: 2rem 1rem !important;
+  animation: slideInDown;
+  animation-duration: 2s;
+}
+
+/*CARD*/
+.card-body,
+.card,
+.card.text-center {
+  margin: 20px;
+  background-color: var(--bkg-light);
+  color: var(--light-green);
+  animation: slideInUp;
+  animation-duration: 1.5s;
+  transition: 1s;
+}
+
+.card {
+  border: var(--border) !important;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
+
+/*DISABLE DRAG*/
+.card-img-top,
+.btn.btn-primary {
+  -webkit-user-drag: none;
+}
+
+/*BUTTON*/
+.btn.btn-primary {
+  color: var(--bkg);
+  background-color: var(--light-green);
+  border-color: var(--light-green) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn.btn-primary:active {
+  background-color: var(--dark-green) !important;
+  color: var(--light-green) !important;
+}
+
+.btn.btn-primary:hover {
+  color: var(--bkg);
+  border-color: var(--dark-green) !important;
+  background-color: var(--dark-green);
+  animation: pulse 500ms infinite;
+}
