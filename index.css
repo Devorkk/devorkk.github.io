@@ -24,7 +24,10 @@ body,
   animation: fadeInLeft;
   animation-duration: 2s;
 }
-
+.container-fluid {
+  display: inline-block;
+  text-align: center;
+}
 /*NAV TEXT*/
 .navbar-brand {
   font-weight: bold;
@@ -45,7 +48,7 @@ body,
 .svg-inline--fa.fa-youtube.fa-w-18.fa-fw {
   color: var(--light-green) !important;
   transition: 1s;
-  flex: 1;
+  display: inline-flex;
 }
 
 .svg-inline--fa.fa-github.fa-w-16.fa-fw:hover,
