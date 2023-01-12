@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
 
 :root {
     --canvas-background: #1c1e1f;
@@ -53,14 +54,23 @@ body[bs-extra-whitespace]:after {
 }
 
 body > h1 {
-    height: 64px; 
-    line-height: 2; 
-    font-size: 2rem;
-    background-color: var(--bkg);
+    font-weight: bolder !important;
+    background-color: red;
+    background-image: linear-gradient(337deg, #DA22FF 30%, #3f5efb 60%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+font-family: 'Candal', sans-serif;
+	letter-spacing: 2 !important
 }
 
-svg {
-    transform: scale(1.4);
+body > h1 > span {
+    background-image: linear-gradient(197deg, #DA22FF -23%, #3f5efb 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1) rotate(90deg) !important;
+    line-height: unset !imporant
 }
 
 @media screen and (max-width: 365px) {
@@ -75,7 +85,7 @@ svg {
 [type=submit] {
     background-color: #242446 !important;
     border: none !important;
-    background-image: linear-gradient(126deg, #4f9df9, #8237fc)
+    background-image: linear-gradient(235deg, #DA22FF -20%, #3f5efb 80%);
 }
 
 [type=text] {
