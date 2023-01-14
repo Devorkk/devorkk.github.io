@@ -1,5 +1,11 @@
-# KoGaMa Lookup 🔎
-## Get detailed information about KoGaMa users.
-This tool can bring help to search detailed information about the user easily thanks to the KoGaMa API.
+<div align="center">
+      <img src="images/lookup.png" width="250px">
+      <h1>KoGaMa Lookup 🔎</h1>
+</div>
 
-## **[KoGaMa Lookup ↷](https://devorkk.github.io/kogama-lookup)**
+# About
+### Search detailed information of any player.<br>
+You can search for KoGaMa players information that is not displayed on the official site.<br>
+Using [`KoGaMa`](https://www.kogama.com/) API and [`cors.sh`](https://github.com/gridaco/cors.sh) makes this possible.
+
+# **[Check out KoGaMa Lookup 🔮](https://devorkk.github.io/kogama-lookup)**
