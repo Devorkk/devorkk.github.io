@@ -1,427 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
 
-:root {
-    --canvas-background: #1c1e1f;
-    --scrollbar-thumb: #677073;
-    --scrollbar-thumb-hover: #767F82;
-    --bkg: #161c20;
-}
-
-[bs-app-theme="light"] {
-    --canvas-background: #f0f0f0;
-    --scrollbar-thumb: #b0b4b9;
-    --scrollbar-thumb-hover: #a1a6ac;
-}
-
-html::-webkit-scrollbar {
-    height: 7px;
-    width: 7px;
-    background: var(--canvas-background);
-}
-
-html::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb);
-}
-
-html::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover);
-}
-
-html::-webkit-scrollbar-corner {
-    display: none;
-}
-
-html,
-body {
-    overflow: inherit !important;
+* {
+    font-family: 'Nunito', sans-serif;
+    user-select: none;
+    -webkit-user-drag: none
 }
 
 html {
-    -webkit-user-select: none;
-    user-select: none;
+  scroll-behavior: smooth;
 }
 
 body {
-    min-height: 650px;
-    background-color: var(--bkg) !important
+    background: #161c20 !important;
 }
 
-body[bs-extra-whitespace]:after {
-    content: '';
-    display: block;
-    height: 500px;
+a {
+    text-decoration: unset !important;
 }
 
-body > h1 {
-    font-weight: bolder !important;
-    background-color: red;
-    background-image: linear-gradient(337deg, #DA22FF 30%, #3f5efb 60%);
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Candal', sans-serif !important;
-	letter-spacing: 2 !important
+.cover-container {
+    max-width: 42em;
 }
 
-body > h1 > span {
-    background-image: linear-gradient(197deg, #DA22FF -23%, #3f5efb 80%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: scale(1) rotate(90deg) !important;
-    line-height: unset !imporant
+div > header > img {
+    max-width: 60%;
+    height: 90%;
 }
 
-@media screen and (max-width: 365px) {
-    div:nth-child(1) > input {
-        border-radius: 20px 20px 20px 20px !important;
+.form-control {
+    border-radius: 20px 0 0 20px !important;
+    color: white !important;
+    border: none !important;
+    background-color: rgb(57 62 65) !important;
+    padding: 0.5rem 1.3rem !important;
+    line-height: 1.6;
+}
+
+.form-control::placeholder {
+    color: white !important;
+}
+
+@media screen and (max-width: 500px) {
+    button#submit,
+   .form-control {
+        border-radius: 10px !important;
     }
-    ::placeholder {
+
+    .form-control::placeholder {
         text-align: center
     }
 }
 
-[type=submit] {
-    background-color: #242446 !important;
+.btn {
     border: none !important;
     background-image: linear-gradient(235deg, #DA22FF -20%, #3f5efb 80%);
+    padding: 0.5rem 1.5rem !important;
 }
 
-[type=text] {
-    border-radius: 20px 0 0 20px !important;
-    cursor: text !important;
-    color: white !important;
-    border: none !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
+#submit {
+    border-radius: 0 10px 10px 0 !important;
 }
 
-::selection {
-    background-color: var(--canvas-background) !important
-}
-
-::placeholder {
-    color: white !important;
-}
 
 svg {
-    transform: scale(1.4);
+    transform: scale(1.2);
 }
 
-* {
-    font-family: 'Nunito', sans-serif;
-    pointer-events: all !important;
-}
-
-img:not([src]):not([srcset]) {
-    width: 100px;
-    height: 80px;
-    position: relative;
-}
-
-img:not([src]):not([srcset]):after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='50' height='50'%3E%3Cdefs%3E%3Cpath d='M23 31l-3.97-2.9L19 28l-.24-.09.19.13L13 33v2h24v-2l-3-9-5-3-6 10zm-2-12c0-1.66-1.34-3-3-3s-3 1.34-3 3 1.34 3 3 3 3-1.34 3-3zm-11-8c-.55 0-1 .45-1 1v26c0 .55.45 1 1 1h30c.55 0 1-.45 1-1V12c0-.55-.45-1-1-1H10zm28 26H12c-.55 0-1-.45-1-1V14c0-.55.45-1 1-1h26c.55 0 1 .45 1 1v22c-.3.67-.63 1-1 1z' id='a'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' fill='%23fff'/%3E%3Cuse xlink:href='%23a' fill-opacity='0' stroke='%23000' stroke-opacity='0'/%3E%3C/svg%3E");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #eaeaeb;
-}
-
-/* Stopping css animations on the stage */
-
-*:not([bs-anim-preview]) {
-    transition: none !important;
-    transition-duration: 0s !important;
-}
-
-[bs-cut],
-[bs-dragged] {
-    opacity: 0.3 !important;
-}
-
-/* Inline editing */
-
-[contenteditable=true] {
-    box-shadow: -1px -1px 1px rgba(17, 142, 232, 0.85),
-        1px 1px 1px rgba(17, 142, 232, 0.85),
-        0 0 11px rgba(17, 142, 232, 0.85) !important;
-    outline: none !important;
-    min-height: 1em;
-    cursor: initial !important;
-}
-
-[contenteditable=true] *:not([contenteditable=false]) {
-    cursor: initial !important;
-}
-
-[contenteditable=true]:empty:before {
-    content: "\00a0\00a0" !important;
-}
-
-[contenteditable=true] [contenteditable=false] {
-    box-shadow: 0 0 0 1px rgba(17, 142, 232, 0.85);
-}
-
-[contenteditable=true] sub {
-    vertical-align: sub;
-    bottom: 0;
-}
-
-[contenteditable=true] sup {
-    vertical-align: super;
-    top: 0;
-}
-
-/* Preventing mouse events for embeds */
-
-iframe,
-embed,
-object,
-audio {
-    pointer-events: none !important;
-}
-
-html.hit-testing iframe,
-html.hit-testing embed,
-html.hit-testing object,
-html.hit-testing audio {
-    pointer-events: all !important;
-}
-
-lottie-player {
-    display: block;
-}
-
-
-
-/* Modal scroll and canvas scroll have the same styles: */
-
-body.modal-open .modal::-webkit-scrollbar {
-    height: 7px;
-    width: 7px;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-body.modal-open .modal::-webkit-scrollbar-corner {
-    display: none;
-}
-
-body.modal-open .modal::-webkit-scrollbar-thumb {
-    background: rgb(137, 143, 146);
-}
-
-body.modal-open .modal::-webkit-scrollbar-track {
-    background: #2f363a;
-}
-
-/* Giving sizes to some elements. */
-
-div[class*="col-"]:empty:before,
-form:empty:before,
-.row:empty:before,
-.form-row:empty:before,
-.form-group:empty:before,
-.container:empty:before,
-.vstack:empty:before,
-.hstack:empty:before,
-div[class*="container-"]:empty:before {
-    background-color: #eee;
-    content: 'Empty Row';
-    font-size: 20px;
-    color: #aaa;
-    font-weight: bold;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 80px;
-    padding: 0 10px;
-    line-height: 26px;
-}
-
-div[class*="col-"]:empty:before {
-    content: 'Empty Column';
-}
-
-form:empty:before {
-    content: 'Empty Form';
-}
-
-.form-group:empty:before {
-    content: 'Empty Form Group';
-}
-
-form.navbar-form:empty:before {
-    display: inline-block;
-    padding: 0 40px;
-    font-size: 16px;
-    line-height: 36px;
-}
-
-.container:empty:before,
-div[class*="container-"]:empty:before {
-    content: 'Empty Container';
-}
-
-.vstack:empty:before,
-.hstack:empty:before {
-    content: 'Empty Stack';
-}
-
-.thumbnail img:not([src]) {
-    background-repeat: no-repeat;
-    background-size: 100% 85%;
-    background-position-y: 50%;
-    width: 100%;
-    height: 180px;
-}
-
-/* Making the dropdown menus have a white background when they're edited */
-
-.dropdown-item:active,
-.dropdown-menu>li>a:focus {
-    background: unset;
-    color: unset;
-}
-
-/* This is needed because the li items are 0x0px by default,
-and bootstrap studio can't select them */
-
-.pagination>li {
-    float: left;
-}
-
-/* Iframes without src are colored in gray */
-.embed-responsive iframe:not([src]) {
-    background-color: #ddd;
-}
-
-/* This is needed, otherwise split buttons in input groups break into two lines. */
-
-.input-group-btn .btn-group>.btn {
-    float: none;
-}
-
-body[bs-no-scroll] {
-    overflow: hidden !important;
-}
-
-div[class*="col-"]:empty,
-div.col:empty {
-    display: flex;
-}
-
-div[class*="col-"]:empty:before,
-form:empty:before,
-.row:empty:before,
-.container:empty:before,
-div[class*="container-"]:empty:before {
-    width: 100%;
-}
-
-div.col:empty:before {
-    background-color: #eee;
-    content: 'Empty Column';
-    line-height: 40px;
-    text-align: center;
-    display: block;
-    line-height: 80px;
-    font-size: 20px;
-    color: #aaa;
-    font-weight: bold;
-    width: 100%;
-}
-
-.toast-header img:not([src]):not([srcset]) {
-    width: 30px;
-    height: 30px;
-}
-
-/* Stopping css spinner animations */
-
-.spinner-grow:not([bs-spinner-animation]),
-.spinner-border:not([bs-spinner-animation]) {
-    animation: none;
-}
-
-.spinner-grow:not([bs-spinner-animation]) {
-    opacity: 1;
-    transform: scale(.8);
-}
-
-.custom-range::-webkit-slider-runnable-track {
-    cursor: inherit;
-}
-
-/* Prevent stretched links from capturing all page clicks */
-a.stretched-link:after {
-    pointer-events: none;
-}
-
-html::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
-}
-
-.bs-icon {
-    --bs-icon-size: .75rem;
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--bs-icon-size);
-    width: calc(var(--bs-icon-size) * 2);
-    height: calc(var(--bs-icon-size) * 2);
-    color: var(--bs-primary);
-}
-
-.bs-icon-xs {
-    --bs-icon-size: 1rem;
-    width: calc(var(--bs-icon-size) * 1.5);
-    height: calc(var(--bs-icon-size) * 1.5);
-}
-
-.bs-icon-sm {
-    --bs-icon-size: 1rem;
-}
-
-.bs-icon-md {
-    --bs-icon-size: 1.5rem;
-}
-
-.bs-icon-lg {
-    --bs-icon-size: 2rem;
-}
-
-.bs-icon-xl {
-    --bs-icon-size: 2.5rem;
-}
-
-.bs-icon.bs-icon-primary {
-    color: var(--bs-white);
-    background: var(--bs-primary);
-}
-
-.bs-icon.bs-icon-primary-light {
-    color: var(--bs-primary);
-    background: rgba(var(--bs-primary-rgb), .2);
-}
-
-.bs-icon.bs-icon-semi-white {
-    color: var(--bs-primary);
-    background: rgba(255, 255, 255, .5);
-}
-
-.bs-icon.bs-icon-rounded {
-    border-radius: .5rem;
-}
-
-.bs-icon.bs-icon-circle {
-    border-radius: 50%;
+.social-media {
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.15);
 }
