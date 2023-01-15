@@ -61,10 +61,11 @@ window.onload = function () {
         fetch(`https://api.allorigins.win/get?url=https://www.kogama.com/profile/${input.value}/`)
         .then(async html => await html.text())
         .then((data) => {
+            let parsed_data = JSON.parse(data).contents
             document.getElementById("alert-error").style.display = "none"
 
-            let user = getData(data).object;
-            let rank = getRank(data)
+            let user = getData(parsed_data).object;
+            let rank = getRank(parsed_data)
             let time = getDate(user)
             const ageDifference = Math.abs(Date.now() - new Date(user.created).getTime());
             let ago = dateDifference(ageDifference, 0);
