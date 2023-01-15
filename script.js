@@ -58,7 +58,7 @@ window.onload = function () {
     submit.addEventListener('click', () => {
         let input = document.getElementById('input');
 
-        fetch(`https://proxy.cors.sh/https://www.kogama.com/profile/${input.value}/`)
+        fetch(`https://api.allorigins.win/get?url=https://www.kogama.com/profile/${input.value}/`)
         .then(async html => await html.text())
         .then((data) => {
             document.getElementById("alert-error").style.display = "none"
