@@ -8,6 +8,7 @@ The records or changes made in this project will be saved in this file.
 * Design improvement, - minimalist.
 * Add option to choose servers such as `Live`, `Brazil` and `Friends`.
 * Some more information.
+* Add link embed for social media.
 
 ## [0.0.1] - 2023-01-15
 
