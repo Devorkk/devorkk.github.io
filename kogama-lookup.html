@@ -1,125 +1,159 @@
 <html lang="en" data-bs-spy="scroll" bs-app-theme="dark">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>KoGaMa Lookup</title>
-    <link href="style/style.css" rel="stylesheet">
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="icons/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="icons/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="icons/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="icons/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="icons/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="icons/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="icons/favicon-128.png" sizes="128x128" />
-    <meta name="application-name" content="&nbsp;"/>
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="icons/mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="icons/mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="icons/mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="icons/mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="icons/mstile-310x310.png" />
-    <link rel="stylesheet" href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css">
-  </head>
-  <body class="h-100 text-center text-white">
-    <script src="script.js"></script>
-    <div class="cover-container d-flex w-100 h-40 p-3 mx-auto flex-column">
-      <header>
-        <img src="images/lookup.png">
-      </header>
-      <main class="px-3">
-        <h1 class="fw-bold">Search detailed information of any player.</h1>
-        <p class="lead py-2" style="color: #a8adb7">You can search for KoGaMa players information that is not displayed on the official site using their API.</p>
-        <input type="button" value="Get started" onclick="scrollDown()" class="btn btn-lg btn-light fw-bold border-white text-white">
-      </main>
-    </div>
-    <div class="container p-5">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>KoGaMa Lookup</title>
+  <link href="style/style.css" rel="stylesheet">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="icons/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="icons/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="icons/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="icons/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="icons/favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="&nbsp;" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="icons/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="icons/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="icons/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="icons/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="icons/mstile-310x310.png" />
+  <link rel="stylesheet" href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css">
+  <link href='https://use.fontawesome.com/releases/v6.2.0/css/all.css' rel='stylesheet'>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+  </script>
+</head>
+
+<body class="h-100 text-center text-white">
+  <script src="script.js"></script>
+  <div class="cover-container d-flex w-100 h-40 p-3 mx-auto flex-column">
+    <header>
+      <img src="images/lookup.png">
+    </header>
+    <main class="px-3">
+      <h1 class="fw-bold">Search detailed information of any player.</h1>
+      <p class="lead py-2" style="text-align: center; color: #a8adb7">You can search for KoGaMa players information that
+        is not displayed on
+        the official site using their API.</p>
+    </main>
+  </div>
+  <div class="container">
     <div class="alert alert-danger" id="alert-error" style="display: none" role="alert">User Not Found!</div>
-      <h4 class="h1 fw-bold py-4">User ID</h4>
-      <div class="d-flex justify-content-center flex-wrap">
-        <div class="shadow-lg mb-3">
-          <input type="text" onkeypress="return isNumberKey(event)" id="input" class="form-control" placeholder="Search...">
-        </div>
-        <div class="shadow-lg mb-3">
-          <button class="btn text-white fw-bold" id="submit" type="button">Lookup</button>
+    <div class="d-flex justify-content-center flex-wrap">
+      <div class="shadow-lg mb-3">
+        <div class="input-group d-flex justify-content-center flex-wrap">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Server</button>
+          <span class="input-group-text input-group-text-dark">Live</span>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item">Live</a></li>
+            <li><a class="dropdown-item">Brazil</a></li>
+            <li><a class="dropdown-item">Friends</a></li>
+          </ul>
+          <input type="text" placeholder="User ID..." class="form-control">
+          <button class="btn btn-outline-secondary" type="button">Search
+            <span role="status" aria-hidden="true"></span>
+          </button>
         </div>
       </div>
     </div>
-    <section class="text-center mx-auto">
-      <div class="container-sm">
-        <table class="table text-white table-dark text-white table-bordered table-hover">
-          <thead>
-            <tr>
-              <th scope="col">General Stats</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="col-6">Friends</td>
-              <td id="td-friends">0 / 0</td>
-            </tr>
-            <tr>
-              <td>Gold</td>
-              <td id="td-gold">0</td>
-            </tr>
-            <tr>
-              <td>Silver</td>
-              <td id="td-silver">0</td>
-            </tr>
-            <tr>
-              <td>Rank</td>
-              <td id="td-rank">0</td>
-            </tr>
-            <tr>
-              <td>Level</td>
-              <td id="td-level">0</td>
-            </tr>
-            <tr>
-              <td>XP</td>
-              <td id="td-xp">0 / 0 (0%)</td>
-            </tr>
-            <tr>
-              <td>Previous XP</td>
-              <td id="td-previousxp">0</td>
-            </tr>
-            <tr>
-              <td>Created</td>
-              <td id="td-created">0</td>
-            </tr>
-          </tbody>
-        </table>
+  </div>
+
+  <section class="cover-container d-flex p-3 mx-auto flex-column">
+    <div class="cover-container d-flex mx-auto flex-column">
+
+      <div class="card mb-3 bg-dark text-center" style="max-width: 30rem; border: 1px solid #373b3e !important">
+        <div class="row g-0">
+          <div class="col-md-4 p-2">
+            <a class="results" target="_blank">
+              <img src="images/user.png" class="results img-fluid rounded" alt="...">
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h1 class="card-title results">Unknown</h1>
+              <h1 class="card-text text-muted results" style="color: #adb5bd !important;">#000000000</h1>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-    <footer class="mt-auto text-white py-2" style="color: #a8adb7 !important;">
-      <ul class="list-inline">
-        <div class="social-media list-inline-item">
-          <li class="list-inline-item">
-            <a class="nav-link py-2 px-2" href="https://github.com/Devorkk" target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="navbar-nav-svg text-light" viewBox="0 0 512 499.36" role="img">
-                <title>GitHub</title>
-                <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z"></path>
-              </svg>
-            </a>
-          </li>
+
+      <div class="card mb-3 bg-dark text-center" style="max-width: 30rem; border: 1px solid #373b3e !important">
+        <div class="row g-0">
+          <div class="card-body">
+            <p>
+              <i class="fa-solid fa-users"></i>
+              <strong>Friends</strong>
+              <span class="results">- / -</span>
+            </p>
+
+            <p>
+              <i class="fa-solid fa-cube"></i>
+              <strong>Gold</strong>
+              <span class="results">-</span>
+            </p>
+
+            <p>
+              <i class="fa-solid fa-cubes"></i>
+              <strong>Silver</strong>
+              <span class="results">-</span>
+            </p>
+
+            <p>
+              <i class="fa-solid fa-crown"></i>
+              <strong>Rank</strong>
+              <span class="results">-</span>
+            </p>
+
+            <p>
+              <i class="fa-solid fa-angles-up"></i>
+              <strong>Level</strong>
+              <span class="results">-</span>
+            </p>
+
+            <p>
+              <i class="fa-solid fa-ranking-star"></i>
+              <strong>XP</strong>
+              <span class="results">- / -</span>
+            </p>
+
+            <p>
+              <i class="fa-solid fa-rotate-left"></i>
+              <strong>Last XP</strong>
+              <span class="results">- / -</span>
+            </p>
+
+            <p>
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <strong>Created</strong>
+              <span class="results">-</span>
+            </p>
+          </div>
         </div>
-        <div class="social-media list-inline-item">
-          <li class="list-inline-item">
-            <a class="nav-link py-2 px-2" href="https://www.youtube.com/@devorkk" target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-youtube text-light">
-                <title>Youtube</title>
-                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"></path>
-              </svg>
-            </a>
-          </li>
-        </div>
-      </ul>
-      <p>Copyright © 2023 Devork. All Rights Reserved.</p>
-    </footer>
-  </body>
+      </div>
+    </div>
+  </section>
+  <footer class="mt-auto text-white py-2" style="color: #a8adb7 !important;">
+    <ul class="list-inline">
+      <div class="social-media list-inline-item">
+        <a class="nav-link py-2 px-2" href="https://github.com/Devorkk" target="_blank">
+          <i class="fa-brands fa-github text-white"></i>
+        </a>
+      </div>
+      <div class="social-media list-inline-item">
+        <a class="nav-link py-2 px-2" href="https://www.youtube.com/@devorkk" target="_blank">
+          <i class="fa-brands fa-youtube text-white"></i>
+        </a>
+      </div>
+    </ul>
+    <p style="text-align: center">Copyright © 2023 Devork. All Rights Reserved.</p>
+  </footer>
+</body>
 </html>
