@@ -1,50 +1,52 @@
 window.onload = function () {
+
     const formatNumber = num => Number(num).toLocaleString().replaceAll(',', ' ').replaceAll('.', ' ')
 
-    let submit = document.getElementById('submit');
-    let input = document.getElementById('input');
+    let submit = document.querySelector('button:nth-child(5)');
+    let input = document.querySelector('input');
+    let serverSpan = document.querySelector('span');
 
-    function getData (body) {
+    for (let i = 0; i < 3; i++) {
+        let dropdown = document.getElementsByClassName('dropdown-item')[i]
+        dropdown.addEventListener('click', () => serverSpan.textContent = dropdown.text)
+    }
+
+    function getData(body) {
         const firstIndex = body.indexOf('options.bootstrap = {') + 20;
         const lastIndex = body.indexOf('};', firstIndex) + 1;
         const text = body.substring(firstIndex, lastIndex)
         return JSON.parse(text)
     }
-    
-    function getRank (body) {
+
+    function getRank(body) {
         const firstIndex = body.indexOf('icon-crown')
         const lastIndex = body.indexOf('xp progression-item', firstIndex)
         const text = body.substring(firstIndex, lastIndex);
         return text.replace(/\D/g, '')
     }
-    
-    function getDate (body) {
+
+    function getAvatars(body) {
+        const firstIndex = body.lastIndexOf('creation-stats')
+        const lastIndex = body.lastIndexOf('Avatar Marketplace', firstIndex)
+        const text = body.substring(firstIndex, lastIndex);
+        return text.replace(/\D/g, '') ? text.replace(/\D/g, '') : 0
+    }
+
+    function getDate(body) {
         let date = new Date(body.created)
         let days = date.toDateString()
         let time = date.toUTCString().slice(17, 25)
-        
         return `${days}, ${time}`
     }
 
-    const TIME_UNITS = {
-        years: 31557600000,
-        months: 2629800000,
-        weeks: 604800000,
-        days: 86400000,
-        hours: 3600000,
-        minutes: 60000,
-        seconds: 1000
-    };
-
-    const dateDifference = (date1, date2) => {
-        let diff = Math.abs(date1 - date2);
-        const res = {};
-        for (const unit in TIME_UNITS) {
-            res[unit] = Math.floor(diff / TIME_UNITS[unit]);
-            diff -= res[unit] * TIME_UNITS[unit];
+    function getServer(server) {
+        const serverPath = {
+            'Live': 'www.kogama.com',
+            'Brazil': 'kogama.com.br',
+            'Friends': 'friends.kogama.com'
         }
-        return res;
-    };    
+        return serverPath[server]
+    }
 
     input.addEventListener('keypress', function (e) {
         if (e.repeat) return;
@@ -56,48 +58,50 @@ window.onload = function () {
     });
 
     submit.addEventListener('click', () => {
-        let input = document.getElementById('input');
+        document.querySelector('section').scrollIntoView()
+        document.querySelector('span:nth-child(1)').className = "spinner-border spinner-border-sm"
+        submit.disabled = true
 
-        fetch(`https://api.allorigins.win/get?url=https://www.kogama.com/profile/${input.value}/`)
-        .then(async html => await html.text())
-        .then((data) => {
-            let parsed_data = JSON.parse(data).contents
-            document.getElementById("alert-error").style.display = "none"
+        fetch(`https://api.allorigins.win/get?url=https://${getServer(serverSpan.textContent)}/profile/${input.value}/`)
+            .then(async html => await html.text())
+            .then((data) => {
+                document.getElementById('alert-error').style.display = 'none'
+                document.querySelector('span:nth-child(1)').className = ''
+                submit.disabled = false
 
-            let user = getData(parsed_data).object;
-            let rank = getRank(parsed_data)
-            let time = getDate(user)
-            const ageDifference = Math.abs(Date.now() - new Date(user.created).getTime());
-            let ago = dateDifference(ageDifference, 0);
-            
-            document.getElementById('td-friends').textContent = `${formatNumber(user.friends)} / ${user.friends_limit}`
-            document.getElementById('td-gold').textContent = formatNumber(user.gold)
-            document.getElementById('td-silver').textContent = formatNumber(user.silver)
-            document.getElementById('td-rank').textContent = formatNumber(rank)
-            document.getElementById('td-level').textContent = user.level
-            document.getElementById('td-xp').textContent = `${formatNumber(user.xp)} / ${formatNumber(user.next_level_xp)} (${user.level_progress.toFixed(2)}%)`
+                let parsed_data = JSON.parse(data).contents
+                let user = getData(parsed_data).object;
+                let rank = getRank(parsed_data)
+                let time = getDate(user)
+                let images = user.images.large.indexOf('cache') == -1 || user.images.large.indexOf('avatar') != -1 ? user.images.large.replace('//', 'https://') : user.images.large.replace('//', 'https://').replace('cache', 'images').replace('_330x451.jpg', '.png')
+                document.querySelectorAll('.results')[1].src = images
+                document.querySelectorAll('.results')[0].href = images
 
-            document.getElementById('td-previousxp').textContent = formatNumber(user.previous_level_xp)
-            document.getElementById('td-created').textContent = `${time} (${ago.years} years, ${ago.months} months, ${ago.days} days ago).`
-            console.log(user.gold, user.silver, user.images.large, user.friends, user.friends_limit, rank, time)
-        }).catch((e) => {
-            document.getElementById("alert-error").style.display = "block"
-            document.getElementById("alert-error").scrollIntoView()
-        })
+                window.userData = top.userData = [
+                    null,
+                    null,
+                    user.username,
+                    '#' + user.id,
+                    formatNumber(user.friends) + '/' + user.friends_limit,
+                    formatNumber(user.gold),
+                    formatNumber(user.silver),
+                    formatNumber(rank),
+                    formatNumber(user.level),
+                    `${formatNumber(user.xp)} / ${formatNumber(user.next_level_xp)} (${user.level_progress.toFixed(2)}%)`,
+                    formatNumber(user.previous_level_xp),
+                    time
+                ]
+
+                let results = document.querySelectorAll('.results')
+                for (let i = 2; i < results.length; i++) {
+                    results[i].textContent = userData[i]
+                }
+
+            }).catch((e) => {
+                document.getElementById('alert-error').style.display = 'block'
+                document.getElementById('alert-error').scrollIntoView()
+            })
     });
 }
 
-setTimeout(() => {
-    scrollTo(null, 0)
-}, 100)
-
-function scrollDown () {
-    document.querySelector("body > div.container.p-5 > h4").scrollIntoView()
-}
-
-function isNumberKey(evt){
-    var charCode = (evt.which) ? evt.which : evt.keyCode
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-    return true;
-}
+setTimeout(() => scrollTo(null, 0), 100)
